@@ -63,7 +63,7 @@ class FSM:
         self.rules = [
             Rule('S_init', 'S-read1', self.all_symbols, self.KPC.reset_password_accumulator),
             Rule('S-read1', 'S-read1', self.all_digits, self.KPC.append_next_password_digit),
-            Rule('S-read1', 'S-verify', '*', self.KPC.verify_password),
+            Rule('S-read1', 'S-verify', '*', self.KPC.verify_login),
             Rule('S-read1', 'S-init', self.all_digits, self.KPC.reset_agent),
             Rule('S-verify', 'S-init', self.all_digits, self.KPC.reset_agent),
             Rule('S-verify', 'S-Active', 'Y', self.KPC.fully_activate_agent),
